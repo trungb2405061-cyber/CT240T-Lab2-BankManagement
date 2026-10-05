@@ -8,7 +8,7 @@ public class SavingAccount extends BankAccount {
 		throws InvalidAmountException, InsufficientBalanceException {
 			super(accountNumber, holderName, balance);
 			if(balance < MIN_BALANCE) {
-				throw new InsufficientBalanceException("Số dư tối thiểu của tài khoản tiết kiệm phải từ " + MIN_BALANCE + " VNĐ!");
+				throw new InsufficientBalanceException("So du toi thieu cua tai khoan tiet kiem phai tu " + MIN_BALANCE + " VND!!!");
 			}
 			this.interestRate = interestRate;
 	}
@@ -21,15 +21,14 @@ public class SavingAccount extends BankAccount {
 		this.interestRate = interestRate;
 	}
 	
-	// Ghi đè phương thức withdraw
 	@Override 
 	public void withdraw(double amount) throws InvalidAmountException, InsufficientBalanceException {
 		//Pre-condition
 		if(amount <= 0) {
-			throw new InvalidAmountException("Số tiền cần rút phải lớn hơn 0!");
+			throw new InvalidAmountException("So tien can rut phai lon hon 0!");
 		}
 		if(getBalance() - amount < MIN_BALANCE) {
-			throw new InsufficientBalanceException("Không thể rút! Số dư sau khi rút không được nhỏ hơn 50.000 VNĐ");
+			throw new InsufficientBalanceException("Khong the rut! So du sau khi rut khong duoc nho hon 50.000 VND!");
 		}
 		setBalance(getBalance() - amount); 
 	}
